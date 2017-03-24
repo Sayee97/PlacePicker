@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FindYourPlace</string>
+    <string name="google_place_api">AIzaSyCiRz9fKBXlb84GQOqgthyANKrN5poOSnI</string>
+
+</resources>
