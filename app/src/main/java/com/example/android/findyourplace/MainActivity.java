@@ -3,6 +3,7 @@ package com.example.android.findyourplace;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,7 +11,7 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
-
+//<string name="google_place_api">AIzaSyC20CWKZNnW-tYav2AyRzBrg6aCnSolZxA</string>
 public class MainActivity extends AppCompatActivity {
     private TextView getPlace1;
 int PLACE_PICKER=1;
@@ -38,13 +39,15 @@ int PLACE_PICKER=1;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==PLACE_PICKER){
             if(resultCode==RESULT_OK){
                 Place place=PlacePicker.getPlace(data,this);
                 String addr = String.format("Place: %s",place.getAddress());
                 getPlace1.setText(addr);
+                Log.v("text",addr);
             }
         }
-        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }
